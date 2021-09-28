@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import './App.scss';
 import NewUser from './components/NewUser/NewUser';
+import UserList from './components/User/UserList';
 
 
 function App() {
@@ -27,8 +29,9 @@ function App() {
 
   return (
     <div className="App">
-     <h1>Practice project</h1>
+      <h1>Practice project</h1>
       <NewUser onAddNewUser={addNewUser} />
+      <UserList userItem={user} />
     </div>
   );
 }
