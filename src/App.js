@@ -19,10 +19,16 @@ function App() {
 
   const [user, setUser] = useState(initialData)
 
+  const addNewUser = (data) => { //passed down to NewUser
+    setUser(prevState => {
+      return [data, ...prevState];
+    })
+  }
+
   return (
     <div className="App">
      <h1>Practice project</h1>
-    <NewUser />
+      <NewUser onAddNewUser={addNewUser} />
     </div>
   );
 }
