@@ -2,19 +2,23 @@ import {useState} from 'react';
 import './UserForm.scss';
 
 
-const UserForm = () => {
+const UserForm = ({onSaveUserData}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputAge, setInputAge] = useState('');
 
     const submitHandler = (e) => {
-        e.preventDefault();
-        setInputName('');
-        setInputAge('');
-        console.log('submit this form');
+      const inputData = {
+        //store data onSubmit
+        Name: inputName,
+        Age: inputAge,
+      };
 
-        //we need to take users input values and store them, pass that data back up to NewUser
-        console.log(`Name: ${inputName} Age: ${inputAge}`);
+      e.preventDefault();
+      setInputName("");
+      setInputAge("");
+      onSaveUserData(inputData); //pass up to NewUser.js
+      console.log("form submit");
     };
 
     const NameChangeHandler = (e) => {
