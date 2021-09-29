@@ -1,6 +1,5 @@
 .user-form {
 
-   padding: 1rem;
    text-align: left;
    
     &__input {   
@@ -11,5 +10,10 @@
 
     label {
         margin-bottom: .5rem;
+    }
+
+    input {
+        font-size: 1.2rem;
+        padding: .1rem;
     }
 }
