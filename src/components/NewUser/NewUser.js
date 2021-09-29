@@ -1,5 +1,6 @@
 import UserForm from './UserForm';
 import './NewUser.scss';
+import Card from '../UI/Card';
 
 const NewUser = ({onAddNewUser}) => {
 
@@ -14,9 +15,9 @@ const NewUser = ({onAddNewUser}) => {
     }
 
   return (
-    <div className="new-user">
+    <Card className="new-user">
       <UserForm onSaveUserData={onSaveUserDataHandler}/>
-    </div>
+    </Card>
   );
 };
 
