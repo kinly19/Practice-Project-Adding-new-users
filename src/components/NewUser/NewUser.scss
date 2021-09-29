@@ -1,29 +1,21 @@
 .new-user {
     
-    background-color: rgb(168, 243, 243);
+  button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #40005d;
+    background-color: #40005d;
+    color: white;
     border-radius: 12px;
-    overflow: hidden;
-    width: 50%;
-    margin: auto;
 
-    button {
-
-        font: inherit;
-        cursor: pointer;
-        padding: 1rem 2rem;
-        border: 1px solid #40005d;
-        background-color: #40005d;
-        color: white;
-        border-radius: 12px;
-
-        &:hover {
-            background-color: #510674;
-            border-color: #510674;
-        }
-        
-        &:active {
-            background-color: #450563;
-        }
+    &:hover {
+      background-color: #510674;
+      border-color: #510674;
     }
 
+    &:active {
+      background-color: #450563;
+    }
+  }
 }
