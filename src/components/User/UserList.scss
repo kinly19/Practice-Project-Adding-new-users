@@ -1,0 +1,18 @@
+.user-content {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    padding: .5rem;
+    margin: .5rem;
+
+    background-color: rgb(238, 238, 238);
+    border: 1px solid black;
+
+    p {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+}
