@@ -1,16 +1,16 @@
+import Card from '../UI/Card';
 import './UserList.scss';
 
 const UserList = ({userItem}) => {
-
     return (
-        <div>
-            {userItem.map((user) => (
-                <div key={user.id}>
-                    <h2>{user.Name}</h2>
-                    <h3>{user.Age}</h3>
-                </div>
-            ))}
-        </div>
+        <Card> {/* Card component used as container */}
+          {userItem.map((user) => (
+            <div className="user-content" key={user.id}>
+              <p>{user.Name}</p>
+              <p>{`(${user.Age} Years old)`}</p>
+            </div>
+          ))}
+        </Card>
     );
 };
 
