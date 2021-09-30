@@ -2,7 +2,7 @@ import UserForm from './UserForm';
 import './NewUser.scss';
 import Card from '../UI/Card';
 
-const NewUser = ({onAddNewUser}) => {
+const NewUser = ({onAddNewUser, onIsInputValid, onIsAgeValid}) => {
 
     const onSaveUserDataHandler = (usersData) => {
         const newUserData = { //make a new object
@@ -14,9 +14,17 @@ const NewUser = ({onAddNewUser}) => {
         onAddNewUser(newUserData);
     }
 
+    const inputValidationHandler = (status) => { //pass down to Userform
+      onIsInputValid(status); //pass up to App.js
+    };
+
+    const ageValidationHandler = (ageStatus) => {
+      onIsAgeValid(ageStatus);
+    };
+
   return (
     <Card className="new-user">
-      <UserForm onSaveUserData={onSaveUserDataHandler}/>
+      <UserForm onSaveUserData={onSaveUserDataHandler} onValidation={inputValidationHandler} onAgeValidation={ageValidationHandler}/>
     </Card>
   );
 };
