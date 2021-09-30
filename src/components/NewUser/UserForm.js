@@ -2,23 +2,29 @@ import {useState} from 'react';
 import './UserForm.scss';
 
 
-const UserForm = ({onSaveUserData}) => {
+const UserForm = ({onSaveUserData, onValidation, onAgeValidation}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputAge, setInputAge] = useState('');
 
     const submitHandler = (e) => {
-      const inputData = {
-        //store data onSubmit
-        Name: inputName,
-        Age: inputAge,
-      };
-
       e.preventDefault();
-      setInputName("");
-      setInputAge("");
-      onSaveUserData(inputData); //pass up to NewUser.js
-      console.log("form submit");
+
+      if (inputName.length === 0) {
+        onValidation(false); //pass up to NewUser.js
+      } else if (inputAge < 1) {
+        onAgeValidation(false);
+      } else {
+        const inputData = {
+          //store data onSubmit
+          Name: inputName,
+          Age: inputAge,
+        };
+        setInputName("");
+        setInputAge("");
+        onSaveUserData(inputData); //pass up to NewUser.js
+        console.log("form submit");
+      }
     };
 
     const NameChangeHandler = (e) => {
