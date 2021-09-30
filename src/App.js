@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.scss';
 import NewUser from './components/NewUser/NewUser';
 import UserList from './components/User/UserList';
+import OverlayItem from './components/Overlay/OverlayItem';
 
 
 function App() {
@@ -45,7 +46,16 @@ function App() {
   return (
     <div className="App">
       <h1>Practice project</h1>
-      <NewUser onAddNewUser={addNewUser} />
+      {!isInputValid && (
+        <OverlayItem onCloseOverlay={closeOverlayHandler}
+          message={"Please enter a valid name and age (non-empty values)"}
+        />
+      )}
+      {!isAgeValid && (
+        <OverlayItem onCloseOverlay={closeOverlayHandler}
+          message={"Please enter a valid age (>0)"}
+        />
+      )}
       <UserList userItem={user} />
     </div>
   );
