@@ -56,6 +56,11 @@ function App() {
           message={"Please enter a valid age (>0)"}
         />
       )}
+      <NewUser
+        onAddNewUser={addNewUser}
+        onIsInputValid={IsInputValidHandler}
+        onIsAgeValid={IsAgeValidHandler}
+      />
       <UserList userItem={user} />
     </div>
   );
