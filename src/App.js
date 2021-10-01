@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1>Practice project</h1>
-      <UserForm onAddNewUser={addNewUser}/>
+      <UserForm onSaveUserData={addNewUser}/>
       <UserList userItem={user} />
     </div>
   );
