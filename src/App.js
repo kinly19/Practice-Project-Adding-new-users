@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import './App.scss';
-import NewUser from './components/NewUser/NewUser';
 import UserList from './components/User/UserList';
-import OverlayItem from './components/Overlay/OverlayItem';
-
+import UserForm from './components/NewUser/UserForm';
 
 function App() {
 
@@ -21,46 +19,17 @@ function App() {
   ];
 
   const [user, setUser] = useState(initialData)
-  const [isInputValid, setIsInputValid] = useState(true);
-  const [isAgeValid, setIsAgeValid] = useState(true);
-
-  const addNewUser = (data) => { //passed down to NewUser
+  
+  const addNewUser = (data) => { //passed down to userForm
     setUser(prevState => {
       return [data, ...prevState];
     })
   }
 
-  const IsInputValidHandler = (isInputValid) => { //pass down to NewUser.js and Overlay.js
-    setIsInputValid(isInputValid);
-  };
-
-  const IsAgeValidHandler = (isAgeValid) => {
-    setIsAgeValid(isAgeValid);
-  };
-
-  const closeOverlayHandler = (status) => {
-    setIsInputValid(status);
-    setIsAgeValid(status);
-  };
-
   return (
     <div className="App">
       <h1>Practice project</h1>
-      {!isInputValid && (
-        <OverlayItem onCloseOverlay={closeOverlayHandler}
-          message={"Please enter a valid name and age (non-empty values)"}
-        />
-      )}
-      {!isAgeValid && (
-        <OverlayItem onCloseOverlay={closeOverlayHandler}
-          message={"Please enter a valid age (>0)"}
-        />
-      )}
-      <NewUser
-        onAddNewUser={addNewUser}
-        onIsInputValid={IsInputValidHandler}
-        onIsAgeValid={IsAgeValidHandler}
-      />
+      <UserForm onAddNewUser={addNewUser}/>
       <UserList userItem={user} />
     </div>
   );
