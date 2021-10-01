@@ -1,4 +1,5 @@
 import Overlay from '../UI/Overlay'
+import Button from './Button';
 import './ErrorModal.scss';
 
 const ErrorModal = (props) => {
@@ -16,7 +17,9 @@ const ErrorModal = (props) => {
         <div className="content__info">
           <p>{props.message}</p>
         </div>
-        <button onClick={props.onConfirm}>Okay</button>
+        <div className="content__btn">
+          <Button onClick={props.onConfirm}>Okay</Button>
+        </div>
       </div>
     </Overlay>
   );
