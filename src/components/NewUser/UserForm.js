@@ -12,11 +12,22 @@ const UserForm = ({onSaveUserData}) => {
     const submitHandler = (e) => {
       e.preventDefault();
 
-      if (inputName.length === 0) {
-        onValidation(false); //pass up to NewUser.js
-      } else if (inputAge < 1) {
-        onAgeValidation(false);
-      } else {
+      if (inputName.length === 0) { //handle validation of input
+        setError({
+          title: "Invalid Input",
+          message: "Please enter a valid name and age (non-empty values)",
+        });
+        return
+      }
+
+      if (inputAge < 1) {
+        setError({
+          title: "Invalid Input",
+          message: "Please enter a valid age (>0)",
+        });
+        return
+      }
+
         const inputData = {
           //store data onSubmit
           Name: inputName,
