@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import './UserForm.scss';
+import Card from '../UI/Card';
 import ErrorModal from '../UI/ErrorModal';
 
 
@@ -28,17 +29,16 @@ const UserForm = ({onSaveUserData}) => {
         return
       }
 
-        const inputData = {
-          //store data onSubmit
-          Name: inputName,
-          Age: inputAge,
-        };
+      const inputData = {
+        //store data onSubmit
+        Name: inputName,
+        Age: inputAge,
+      };
 
-        setInputName("");
-        setInputAge("");
+      setInputName("");
+      setInputAge("");
       onSaveUserData(inputData); //pass up to app.js
-        console.log("form submit");
-      }
+      console.log("form submit");
     };
 
     const NameChangeHandler = (e) => {
@@ -54,27 +54,32 @@ const UserForm = ({onSaveUserData}) => {
     };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="user-form">
-        <div className="user-form__input">
-          <label>Usernane</label>
-          <input 
-          type="text" 
-          value={inputName}
-          onChange={NameChangeHandler}
-          />
-        </div>
-        <div className="user-form__input">
-        <label>Age (Years)</label>
-          <input 
-          type="text" 
-          value={inputAge}
-          onChange={AgeChangeHandler}
-          />
-        </div>
-        <button>Add User</button>
-      </div>
-    </form>
+    <div>
+     {error && <ErrorModal title={error.title} message={error.message} onConfirm={closeOverlayHandler}/>} {/* conditional render */}
+      <Card>
+        <form onSubmit={submitHandler}>
+          <div className="user-form">
+            <div className="user-form__input">
+              <label>Usernane</label>
+              <input 
+              type="text" 
+              value={inputName}
+              onChange={NameChangeHandler}
+              />
+            </div>
+            <div className="user-form__input">
+            <label>Age (Years)</label>
+              <input 
+              type="number" 
+              value={inputAge}
+              onChange={AgeChangeHandler}
+              />
+            </div>
+            <button>Add User</button>
+          </div>
+        </form>
+      </Card>
+    </div>
   );
 };
 
