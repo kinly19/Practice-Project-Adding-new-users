@@ -2,6 +2,7 @@ import {useState} from 'react';
 import './UserForm.scss';
 import Card from '../UI/Card';
 import ErrorModal from '../UI/ErrorModal';
+import Button from '../UI/Button';
 
 
 const UserForm = ({onSaveUserData}) => {
@@ -75,7 +76,7 @@ const UserForm = ({onSaveUserData}) => {
               onChange={AgeChangeHandler}
               />
             </div>
-            <button>Add User</button>
+            <Button>Add User</Button>
           </div>
         </form>
       </Card>
