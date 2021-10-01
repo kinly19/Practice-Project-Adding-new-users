@@ -1,11 +1,13 @@
 import {useState} from 'react';
 import './UserForm.scss';
+import ErrorModal from '../UI/ErrorModal';
 
 
-const UserForm = ({onSaveUserData, onValidation, onAgeValidation}) => {
+const UserForm = ({onSaveUserData}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputAge, setInputAge] = useState('');
+    const [error, setError] = useState ();
 
     const submitHandler = (e) => {
       e.preventDefault();
@@ -20,9 +22,10 @@ const UserForm = ({onSaveUserData, onValidation, onAgeValidation}) => {
           Name: inputName,
           Age: inputAge,
         };
+
         setInputName("");
         setInputAge("");
-        onSaveUserData(inputData); //pass up to NewUser.js
+      onSaveUserData(inputData); //pass up to app.js
         console.log("form submit");
       }
     };
@@ -33,6 +36,10 @@ const UserForm = ({onSaveUserData, onValidation, onAgeValidation}) => {
 
     const AgeChangeHandler = (e) => {
         setInputAge(e.target.value);
+    };
+
+    const closeOverlayHandler = () => {
+      setError(null);
     };
 
   return (
