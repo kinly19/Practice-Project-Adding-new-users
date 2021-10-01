@@ -22,23 +22,8 @@
     padding: 1rem;
   }
 
-  button {
-    font: inherit;
-    cursor: pointer;
-    border: 1px solid #40005d;
-    background-color: #40005d;
-    color: white;
-    margin: 1rem 1rem;
-    width: 5rem;
-    height: 2.5rem;
-
-    &:hover {
-      background-color: #510674;
-      border-color: #510674;
-    }
-
-    &:active {
-      background-color: #450563;
-    }
+  &__btn {
+    margin: 1rem;
   }
+
 }
