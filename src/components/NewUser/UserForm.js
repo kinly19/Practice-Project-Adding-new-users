@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, Fragment} from 'react';
 import './UserForm.scss';
 import Card from '../UI/Card';
 import ErrorModal from '../UI/ErrorModal';
@@ -55,11 +55,10 @@ const UserForm = ({onSaveUserData}) => {
     };
 
   return (
-    <div>
+    <Fragment>
      {error && <ErrorModal title={error.title} message={error.message} onConfirm={closeOverlayHandler}/>} {/* conditional render */}
       <Card>
-        <form onSubmit={submitHandler}>
-          <div className="user-form">
+        <form className="user-form" onSubmit={submitHandler}>
             <div className="user-form__input">
               <label>Usernane</label>
               <input 
@@ -77,10 +76,9 @@ const UserForm = ({onSaveUserData}) => {
               />
             </div>
             <Button>Add User</Button>
-          </div>
         </form>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 
